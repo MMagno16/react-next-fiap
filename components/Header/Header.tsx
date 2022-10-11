@@ -1,8 +1,10 @@
 import React from 'react'
 import styles from './Header.module.css'
-import { css } from '@emotion/css';
-import Link from 'next/link';
+import { css} from '@emotion/css';
 import styled from '@emotion/styled';
+import Link from 'next/link';
+import Input from "../Form/Input/Input";
+import Button from '../Form/Button/Button';
 
 //  existem 5 maneiras diferentes de utilizar css no React:
 // css PURO (ex.aquivo.css) - não recomendado
@@ -45,24 +47,7 @@ height: 50px;
 `;
 
 
-const Input = styled.input `
-   border: none;
-  border-radius: 10px;
-  padding: 2px 10px;
-  height: 30px;
 
-`;
-
-const Button = styled.button `
-  border: none;
-  border-radius: 10px;
-  height: 30px;
-  margin-left: 5px;
-  color: #333;
-  background: linear-gradient(150deg, #ffeb84 0%, #ffd53e 100%);
-  box-shadow: 0px 2px 5px -1px rgb(59, 59, 59, 0.5);
-
-`;
 //input
 //button
 
@@ -98,8 +83,12 @@ export default function Header(props:HeaderProps) {
                     <li><Link href="#">Contato</Link></li>
                 </ul>
             </NavMenu>
-            <Input/>
-            <Button>{props.Buscar?props.Buscar:"Buscar"}</Button>
+            <div>
+                
+            <Input type="text" placeholder="Digite sua busca"/>
+            <Button disabled>{props.Buscar?props.Buscar:"Buscar"}</Button>
+
+            </div>
         </HeaderPage>
     )
 }
